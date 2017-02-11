@@ -1,0 +1,4 @@
+* HW1    4b11394 Adding HW1
+  master fee04d9 Fixing question of running ARK4 or RK4
+
+The above output was achieved by typing "git branch -v" on my personal laptop's terminal.
