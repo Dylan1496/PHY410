@@ -33,6 +33,7 @@ int main(void) {
       }
       std::cout << "The equation of the line is y = " << slope <<"*x + " << intercept << std::endl;
   }
+  //End of program
   return 0;
 }
       
