@@ -10,7 +10,7 @@ def main():
     firstname = ""
     score = 0.0
     #Input a file
-    Filename = open(input("Enter a file name (.txt files only): "))
+    Filename = open(input("Enter a file name (.txt files only, wrap filename with quotes): "))
     Filetext = Filename.read()
     Filetext = Filetext.replace("\n", ",")
     Filetext = Filetext.split(",")
