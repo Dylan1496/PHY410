@@ -1,0 +1,6 @@
+This is the fit data obtained using the individual nebulae.
+Least squares fit of 24 data points
+ -----------------------------------
+ Hubble's constant slope   b = 454.16 +-  75.24  km/s/Mpc
+ Intercept with r axis     a = -40.78 +-  83.44  km/s
+ Estimated v error bar sigma = 232.9 km/s

@@ -1,0 +1,17 @@
+Results from the low z supernova subset (chose z <= 0.3 for this)
+Chi-square fit of supernova data to a straight line
+ Reference: http://dark.dark-cosmology.dk/~tamarad/SN/
+ read 59 data values
+ slope = 5.37217074606  +-  0.0677820149393
+ intercept = 43.9150118459 +- 0.0936956094467
+ chi-square/d.o.f. =  1.05794473091
+
+Results from the high z supernova subset (z > 0.3)
+Chi-square fit of supernova data to a straight line
+ Reference: http://dark.dark-cosmology.dk/~tamarad/SN/
+ read 133 data values
+ slope = 6.1317703821  +-  0.111780157402
+ intercept = 44.281187938 +- 0.0316555637445
+ chi-square/d.o.f. =  1.00463941161
+
+We see from the two sets of results that the high z supernova subset has a higher slope than the low z supernova subset. This suggests that the universe is expanding at an accelerating rate. Even without this(the separate subanalysis), we can see this in the full data set since when we plot the full data set on a x log axis (using matplotlib), we see that there is a slight bend upward in the mu around -0.5 on the x axis. This suggests that the expansion is accelerating. We should expect at longer distances (higher mu) that the slope is even higher.

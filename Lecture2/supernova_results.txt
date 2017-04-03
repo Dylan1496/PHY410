@@ -1,0 +1,25 @@
+This is the results from running "supernova.py":
+Chi-square fit of supernova data to a straight line
+ Reference: http://dark.dark-cosmology.dk/~tamarad/SN/
+ read 192 data values
+ slope = 5.5533276227  +-  0.0256716390844
+ intercept = 44.1521301449 +- 0.0220367074729
+ chi-square/d.o.f. =  1.18879507677
+
+To interpret this, we use the formula
+mu = 25 + 5 log_10(cz/H_0) + 1.086(1-q_0)z + ...
+
+we assume q_0 = 1 for Problem 1, so 1-q_0 = 1-1=0. Then
+mu = 25 + 5 log_10(cz/H_0) + ...
+
+where mu is the distance modulus, z is the redshift, c is the speed of light and  H_0 is the Hubble constant.
+If we let log_10(z) = 0 (so that z = 1), we get
+
+44.1521301449 = 25 + 5*log_10(c/H_0)
+19.1521301449 = 5*log_10(c/H_0)
+3.83042602898 = log_10(c/H_0)
+c/H_0 = 10^3.83042602898
+1/H_0 = (10^3.83042602898)/(c)
+hubble constant = 44.29908 km/s/Mpc
+
+This is on the correct order of magnitude of the correct value, but it is below the correct value (see Problem 1). Why is this? ie why are we getting a lower value of the Hubble constant? The errors on the slope and the intercept are small relative to the values we obtained, so this is not the problem. One possibility is that we do not know how mu corresponds to a real distance (does mu = 40 correspond to 1 Mpc, or is it something else?) Hence we are uncertain of the scale of the y axis, in terms of a distance.

@@ -1,0 +1,13 @@
+This is the fit data obtained using the nine groups determined in "nebulae.txt".
+Least squares fit of 9 data points
+ -----------------------------------
+ Hubble's constant slope   b = 417.68 +-  96.40  km/s/Mpc
+ Intercept with r axis     a =  -3.06 +-  95.67  km/s
+ Estimated v error bar sigma = 167.9 km/s
+
+This implies a k value of 400 +- 100 km/s/Mpc, following the standard significant digit rules. The k value that Hubble obtains, 513 +- 60 km/s/Mpc, does not fall within our determination, but the uncertainties do coincide.
+The hubble time is the age of the universe if the expansion is linear. It is given by
+t_hubble = 1/b.
+With b = 417.68 km/s/Mpc, we get the following:
+t_hubble = 1/(417.68 km/s/Mpc) = 7.388*10^16 s = 2.341*10^9 yr
+For comparison, the accepted value of the age of the universe is 13.8 billion yr, which is an order of magnitude larger than our determination. So this suggests that b is an order of magnitude too high. A modern value of b is 69.2 +1.4 -2.2 km/s/Mpc (source: https://arxiv.org/abs/1607.01790).

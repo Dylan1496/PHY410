@@ -1,6 +1,6 @@
 import math
-#import numpy as np
-#import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def chi_square_fit(x, y, err):
@@ -33,6 +33,10 @@ def chi_square_fit(x, y, err):
 
 print ' Chi-square fit of supernova data to a straight line'
 print ' Reference: http://dark.dark-cosmology.dk/~tamarad/SN/'
+#specification of data files
+#Davis07_R07_WV07.dat - original supernovae data set.
+#lowz.dat - subset of supernovae with z <= 0.3
+#highz.dat - subset of supernovae with z > 0.3
 data_file = open('Davis07_R07_WV07.dat', 'r')
 #data_file = open('error1.dat', 'r')
 #data_file = open('error2.dat', 'r')
@@ -53,7 +57,7 @@ for i_mu_err_data in mu_err_data :
         print 'Error! Uncertainties are too small!'
         exit()
 
-#plt.scatter( logz_data, mu_data )
+plt.scatter( logz_data, mu_data )
 
 
 fit = chi_square_fit(logz_data, mu_data, mu_err_data)
@@ -64,4 +68,4 @@ if len(data) - 2 > 0 :
 else :
     print ' chi-square/d.o.f. undefined'
 
-#plt.show()
+plt.show()

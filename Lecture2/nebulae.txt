@@ -1,0 +1,36 @@
+This is the list of data for the nebulae that appears in Hubble's 1929 paper, "A Relation Between Distance and Radial Velocity Among Extra-galactic Nebulae". Included is the location of the nebulae, from http://spider.seds.org/ngc/ngc.html, except for L. Mag, which is from http://ned.ipac.caltech.edu. r is in megaparsecs. v is in km/sec. R. Asc. is in hours:minutes. Declination is in degrees:minutes. Group # is the group the cluster is in (my determination - Hubble did not provide this).
+
+S. Mag - r = .032, v = 170, R. Asc = 0:52.8, Dec. = -72:50, #1
+L. Mag - r = .034, v = 290, R. Asc = 5:23.6, Dec. = -69:45, #1
+NGC 6822 - r = .214, v = -130, R. Asc = 19:44.9, Dec. = -14:48, #8
+598 - r = .263, v = -70, R. Asc = 1:33.9, Dec = 30:39, #9
+221 - r = .275, v = -185, R. Asc = 0:42.7, Dec = 40:52, #2
+224 - r = .275, v = -220, R. Asc = 0:42.7, Dec = 41:16, #2
+5457 - r = .45, v = 200, R. Asc = 14:03.2, Dec = 54:21, #3
+4736 - r = .5, v = 290, R. Asc = 12:50.9, Dec = 41:07, #3
+5194 - r = .5, v = 270, R. Asc = 12:50.9, Dec = 41:07, #3
+4449 - r = .63, v = 200, R. Asc = 12:28.2, Dec = 44:06, #5
+4214 - r = .8, v = 300, R. Asc = 12:15.6, Dec = 36:20, #5
+3031 - r = .9, v = -30, R. Asc = 9:55.6, Dec = 69:04, #7
+3627 - r = .9, v = 650, R. Asc = 11:20.2, Dec = 12:59, #7
+4826 - r = .9, v = 150, R. Asc = 12:56.7, Dec = 21:41, #7
+5236 - r = .9, v = 500, R. Asc = 13:37.0, Dec = -29:52, #7
+1068 - r = 1.0, v = 920, R. Asc = 2:42.7, Dec = -00:01, #9
+5055 - r = 1.1, v = 450, R. Asc = 13:15.8, Dec = 42:02, #6
+7331 - r = 1.1, v = 500, R. Asc = 22:37.1, Dec = 34:25, #8
+4258 - r = 1.4, v = 500, R. Asc = 12:19.0, Dec = 47:18, #6
+4151 - r = 1.7, v = 960, R. Asc = 12:10.5, Dec = 39:24, #6
+4382 - r = 2.0, v = 500, R. Asc = 12:25.4, Dec = 18:11, #4
+4472 - r = 2.0, v = 850, R. Asc = 12:29.8, Dec = 08:00, #4
+4486 - r = 2.0, v = 800, R. Asc = 12:30.8, Dec = 12:24, #4
+4649 - r = 2.0, v = 1090, R. Asc = 12:43.7, Dec = 11:33, #4
+
+#1 - average r = .033, average v = 230
+#2 - average r = .275, average v = -202.5
+#3 - average r = .483, average v = 253.3
+#4 - average r = 2.0, average v = 810
+#5 - average r = .715, average v = 250
+#6 - average r = 1.55, average v = 730
+#7 - average r = .9, average v = 317.5
+#8 - average r = .657, average v = 185
+#9 - average r = .6315, average v = 425
