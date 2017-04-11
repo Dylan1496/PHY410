@@ -4,7 +4,7 @@ from fft import fft
 from numpy import array
 import math
 
-plotfirst = True
+plotfirst = False
 
 if plotfirst == True : 
     # make some fake data :
@@ -25,7 +25,7 @@ if plotfirst == True :
     s2 = plt.subplot(2, 1, 2)
     s2.set_autoscalex_on(False)
     plt.plot( x, Yre )
-    plt.xlim([0,20])
+    plt.xlim([0,1024])
 
     plt.show()
 
@@ -33,7 +33,9 @@ if plotfirst == True :
 else : 
     # data downloaded from ftp://ftp.cmdl.noaa.gov/ccg/co2/trends/co2_mm_mlo.txt
     print ' C02 Data from Mauna Loa'
-    data_file_name = 'co2_mm_mlo.txt'
+    # co2_mm_mlo.txt - original data, to July 2013
+    # co2_mm_mlo_updated.txt - data to March 2017
+    data_file_name = 'co2_mm_mlo_updated.txt'
     file = open(data_file_name, 'r')
     lines = file.readlines()
     file.close()

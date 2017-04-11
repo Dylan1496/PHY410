@@ -1,0 +1,9 @@
+Earthquake problem: For this I used the NCEDC dataset (http://www.ncedc.org/ncedc/catalog-search.html) with the same amount of time as I used for the NEIC dataset. I used quake.py to perform a linear fit on the dataset (making the necessary changes). I found the following:
+
+slope = -.862 +- .004
+intercept = 6.718 +- .019
+log_10(N) error bar = .068
+
+Compared to the NEIC dataset (where I got a value of -.938 +- .003), the NCEDC dataset has a shallower slope. However they are reasonable values, as they are near the value of ~-1 found in "The Physics of Earthquakes".
+
+Global Warming Problem: For the data set of global temperatures, I took it from https://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt. I then used the fft_test_demonstrations.py code to plot the temperature versus year. The y axis is the temperature deviation from the 1951-1980 average, in units of .01 degrees centigrade. The x axis is the year, with 0 corresponding to year 1880. The year 1958 (where the CO2 data starts) corrsponds to year 78 in the records. Comparing the two plots together, we see (ignoring the padding) that the temperature raises steadily with the CO2 concentration. This suggests a linear relationship between the two.

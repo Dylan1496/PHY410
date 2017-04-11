@@ -6,7 +6,7 @@ from numpy import array
 import math
 import time
 
-plotfirst = True
+plotfirst = False
 
 if plotfirst == True : 
     # make some fake data as a single-frequency sinusoid
@@ -53,9 +53,12 @@ if plotfirst == True :
 
 
 else : 
-    # data downloaded from ftp://ftp.cmdl.noaa.gov/ccg/co2/trends/co2_mm_mlo.txt
-    print ' C02 Data from Mauna Loa'
-    data_file_name = 'co2_mm_mlo.txt'
+    # CO2 data downloaded from ftp://ftp.cmdl.noaa.gov/ccg/co2/trends/co2_mm_mlo.txt
+    # Global Warming Data downloaded from https://data.giss.nasa.gov/gistemp/
+    print ' Global Surface Temperature'
+    #co2_mm_mlo.txt - original data, to July 2013
+    #co2_mm_mlo_updated.txt - data to March 2017
+    data_file_name = 'GLBTs_dSSt.txt'
     file = open(data_file_name, 'r')
     lines = file.readlines()
     file.close()
@@ -67,11 +70,21 @@ else :
     xinput = []
 
     for line in lines :
-        if line[0] != '#' :
+        #for CO2 data: skip lines with #
+        #for Global Temperature: skip lines with words
+        if line[0] != 'Y':
             try:
                 words = line.split()
-                xval = float(words[2])
-                yval = float( words[4] )
+                #for debugging - print each word array
+                #print words
+                #for Global Temperature - year is entry 0
+                xval = float( words[0] )
+                #for CO2 data:
+                #words[3] - average
+                #words[4] - interpolated average
+                #words[5] - season corrected trend
+                #for Global Temperature - J-D is entry 13
+                yval = float( words[13] )
                 yinput.append( yval )
                 xinput.append( xval )
             except ValueError :
@@ -82,7 +95,7 @@ else :
     log2N = math.log(N, 2)
     if log2N - int(log2N) > 0.0 :
         print 'Padding with zeros!'
-        pads = [300.0] * (pow(2, int(log2N)+1) - N)
+        pads = [50.0] * (pow(2, int(log2N)+1) - N)
         yinput = yinput + pads
         N = len(yinput)
         print 'Padded : '

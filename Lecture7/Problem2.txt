@@ -1,0 +1,17 @@
+To produce the graphs with the different columns, the argument for words is changed for the variable yval. They are given as follows:
+[3] - average
+[4] - interpolated average (average for the most part, where there is missing data the data is smoothed
+[5] - season corrected trend (removed the seasonal fluctuations (sinusoidal part)
+Regardless of the yvalues used, we get roughly the same pattern: the rate of increase tends to increase as t increases (ignore the drop off to 300 ppm, this is only to pad the data so that the fast fourier transform works.) The rate of average increase does not seem to depend on which column we use.
+As stated above, the rate of increase seems to increase as the years go by.
+When will the air become toxic and kill us all (provided nothing else does)?
+The current rate of increase in CO2 concentration is approximately
+
+rate = (concentration 2 - concentration 1)/(time 2 - time 1)
+
+rate = (405.90 ppm - 402.30 ppm)/(2017.042 - 2016.042) = 3.60 ppm/yr.
+Starting from 405.60 ppm (the current concentration), the air will become toxic in
+
+50,000 ppm = 405.60 ppm + 3.60 ppm/yr*x
+x = 13776.2 yrs (assuming that the rate remains the same, which there is no reason why it should).
+

@@ -54,7 +54,13 @@ Model predicts.
 
 # data downloaded from http://earthquake.usgs.gov/earthquakes/search/
 print ' Earthquake data: Gutenberg-Richter Model'
-data_file_name = 'california_earthquakes_2010_to_2013.csv'
+# california_earthquakes_2010_to_2013.csv - original data set used
+# query.csv - much more extensive data set of California quakes of
+# magnitude 3 or greater from the above site (for Problem 1), from 1977 to 2017
+# (the full data range, 1973-2017, can't fit in a single csv file)
+# northern_california_quakes.csv - earthquakes from the NCEDC catalog
+# http://www.ncedc.org/ncedc/catalog-search.html
+data_file_name = 'northern_california_quakes.csv'
 file = open(data_file_name, 'r')
 lines = file.readlines()
 file.close()
@@ -68,7 +74,9 @@ print ' read', len(lines), 'lines from', data_file_name
 histogram = dict()
 magvalues = []
 for line in lines:
-    if line[0] != 't' :
+    #for quake and california_earthquakes_2010_to_2013, first line has time 't'
+    #for the northern california dataset, starts with D
+    if line[0] != 'D' :
         try:
             words = line.split(',')
             [latitude,longitude,depth,mag] = [float(s) for s in words[1:5] ]

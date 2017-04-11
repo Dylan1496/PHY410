@@ -13,13 +13,17 @@ int main()
 
 
     // data downloaded from http://neic.usgs.gov/neis/epic/epic_global.html
-    const string quake_data("california_earthquakes_2010_to_2013.csv");
+    // california_earthquakes_2010_to_2013.csv - original data set used
+    // query.csv - much more extensive data set of California quakes of
+    // magnitude 3 or greater from the above site (for Problem 1), from 1977 to 2017
+    // (the full data range, 1973-2017, can't fit in a single csv file)
+    const string quake_data("query.csv");
 
     cout << " Earthquake data: Gutenberg-Richter Law" << endl;
 
     // define a histogram to store the data
-    int bins = 100;
-    double M_min = 1.0, M_max = 10.0;
+    int bins = 273;
+    double M_min = 3.0, M_max = 10.0;
     double dM = (M_max - M_min) / bins;
     vector<double> M(bins), N(bins);
     for (int i = 0; i < bins; i++)

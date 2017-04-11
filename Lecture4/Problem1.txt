@@ -1,0 +1,4 @@
+For query.csv, the slope is -0.730155 when quake.cpp is used (without modification). For python, however, we get a slope of -.938 +- .003. This is a large discrepancy! Why is this the case? The difference could be due to the number of bins being different in Python than in c++. In python, query.csv is stored in 273 bins, but by default, the quake.cpp file has only 100 bins.
+Changing the bin numbers from 100 to 273 did not make an appreciable difference in the slope in the c++ code. So the discrepancy must be caused by something else.
+What did fix the slope was changing the start point, since it was incorrect. Python can determine from the file where to start the plotting of points from the arrays. For c++, we must enter the starting magnitude manually. Setting M_min to 3.0 in the quake.cpp file, we get a slope of -0.946218. Much more reasonable!
+According to "The Physics of Earthquakes", b should be approximately -1. This is supported by the two values above.
