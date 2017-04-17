@@ -1,0 +1,40 @@
+Note: y_k = A*sin(2*pi*f*k/N), where A is -1 for the test data (since the argument of the sine function is -2*pi*f*xi/N, and sin(-x) = -sin(x).)
+In the power spectrum in the fake data (done by setting the plotfirst variable to True) we have a spike at k = 10, and no other features. This implies that our data consists of a single frequency.
+We need to find:
+1) The period,
+2) The N that a period corresponds to,
+3) How do we convert between frequency and period?
+
+1) What is the period of the oscillation?
+
+The period may be found with the formula
+
+omega = (2*pi)/T
+
+which can be rewritten as
+
+T = (2*pi)/omega
+
+where T is the period, and omega is the angular frequency.
+The angular frequency is, in the notation of fft_test.py,
+
+2*pi*f/N = 2*pi*10.0/1024 = .061359
+This implies that
+
+T = (2*pi)/(2*pi*10.0/1024) = 102.4
+
+2) What is the N that this corresponds to?
+
+The N that corresponds to the period is the N that makes the argument
+-2*pi*f*xi/N = 2n*pi, where n is an integer.
+This occurs when xi is a multiple of T = 102.4 (ie 0, 102.4, 204.8, 307.2, 409.6, 512, 614.4, 716.8, 819.2, 921.6, 1024).
+Our x's in fft_test.py are integers, so the only N's in the are 0, 512 and 1024.
+
+3) The relation between angular frequency and period is
+T = (2*pi)/omega
+The relation between frequency (in Hertz) and period is
+T = 1/F
+
+where F is the frequency of the wave. This implies that
+
+F = 1/T = 1/102.4 = .009765625

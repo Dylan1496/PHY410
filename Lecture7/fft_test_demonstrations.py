@@ -2,11 +2,12 @@ import matplotlib.pyplot as plt
 
 from fft import fft
 from fft import fft_power
-from numpy import array
+from fft import ifft
+from numpy import array, real
 import math
 import time
 
-plotfirst = True
+plotfirst = False
 
 if plotfirst == True : 
     # make some fake data as a single-frequency sinusoid
@@ -55,7 +56,9 @@ if plotfirst == True :
 else : 
     # data downloaded from ftp://ftp.cmdl.noaa.gov/ccg/co2/trends/co2_mm_mlo.txt
     print ' C02 Data from Mauna Loa'
-    data_file_name = 'co2_mm_mlo.txt'
+    #co2_mm_mlo.txt - data up to July 2013
+    #co2_mm_mlo_updated.txt - data up to March 2017
+    data_file_name = 'co2_mm_mlo_updated.txt'
     file = open(data_file_name, 'r')
     lines = file.readlines()
     file.close()
@@ -72,7 +75,10 @@ else :
                 words = line.split()
                 xval = float(words[2])
                 yval = float( words[4] )
-                yinput.append( yval )
+                #for removing the linear trend,
+                #subtract 315.71 + 1.5503*(xval-1958.208)
+                #last term is time since first measurement!
+                yinput.append( yval-(315.71 + 1.5503*(xval-1958.208)) )
                 xinput.append( xval )
             except ValueError :
                 print 'bad data:',line
@@ -82,7 +88,9 @@ else :
     log2N = math.log(N, 2)
     if log2N - int(log2N) > 0.0 :
         print 'Padding with zeros!'
-        pads = [300.0] * (pow(2, int(log2N)+1) - N)
+        #when linear trend is included, use a value of 300-325
+        #when the trend is removed, use a value around 0.
+        pads = [1.75] * (pow(2, int(log2N)+1) - N)
         yinput = yinput + pads
         N = len(yinput)
         print 'Padded : '
@@ -95,20 +103,36 @@ else :
     y = array( yinput ) 
     x = array([ float(i) for i in xrange(len(y)) ] )
     Y = fft(y)
+    
+    #Set max frequency that should be kept in the data
+    maxfreq = 35
+    #Now smooth the data
+    for iY in range(maxfreq, len(Y)-maxfreq ):
+        Y[iY] = complex(0,0)
 
     powery = fft_power(Y)
     powerx = array([ float(i) for i in xrange(len(powery)) ] )
 
     Yre = [math.sqrt(Y[i].real**2+Y[i].imag**2) for i in xrange(len(Y))]
 
+    ysmoothed = ifft(Y)
+    ysmoothedreal = real(ysmoothed)
 
-    plt.subplot(2, 1, 1)
-    plt.plot( x, y )
+    #Make sure to add back the linear fit to the data!
+    #Uncomment the lines below to do this, and comment them if not
+    y = y + (315.71+1.5503*(x/12.))
+    ysmoothedreal = ysmoothedreal + (315.71+1.5503*(x/12.))
 
-    ax = plt.subplot(2, 1, 2)
-    p1, = plt.plot( powerx, powery )
-    p2, = plt.plot( x, Yre )
-    ax.legend( [p1, p2], ["Power", "Magnitude"] )
+
+    ax1 = plt.subplot(2, 1, 1)
+    p1, = plt.plot( x, y )
+    p2, = plt.plot(x, ysmoothedreal)
+    ax1.legend( [p1,p2], ['Original', 'Smoothed'], loc = 4 )
+
+    ax2 = plt.subplot(2, 1, 2)
+    p3, = plt.plot( powerx, powery )
+    p4, = plt.plot( x, Yre )
+    ax2.legend( [p3, p4], ["Power", "Magnitude"] )
     plt.yscale('log')
 
 

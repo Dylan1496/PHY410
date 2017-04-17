@@ -1,0 +1,13 @@
+For problem 3 we are to subtract a linear fit of the CO2 data and present a Fourier transform of the data, and then to "clean up" the data. We are then supposed to plot the cleaned up spectrum in the time domain, adding back the linear trend.
+First, we need to find a linear fit to the data.
+The first data point, March 1958, has a y value of 315.71 ppm.
+The final data point, March 2017, has a y value of 407.18 ppm.
+This corresponds to a slope of
+slope = (407.18-315.71)/(2017.208-1958.208) = 1.5503 ppm/yr.
+Of course, we can shift the x axis so that the first data point corresponds to 0 time.
+So a line that fits the data is
+y = 315.71 + 1.5503*t, where t is the time passed since the decimal year 1958.208.
+Subtract this from the y values, and apply the fft alogorithm with padding at the level 0.0.
+Doing this yields the plot in co2_without_trend.png. The power spectrum is quite jagged. We can do better than this.
+To improve, we set the maxfreq to 35, removing most of the peaks and jaggies in the Fourier plane. The result is a smoothed out curve (seen without the linear trend in co2_without_trend_smoothed.png and with it in co2_with_trend_smoothed.png).
+For the resulting plots, to move the lengend out of the way I used the keyword argument loc in legend with argument 4, which moves it to the bottom right. By default, the loc keyword argument is none (source: http://matplotlib.org/api/legend_api.html), which seems to place it in the top right for these plots.
