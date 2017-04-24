@@ -1,0 +1,15 @@
+Lennard Jones potential:
+The plots for typical trajectories for energies 0.5, 0.65, and 0.75 are shown as png's in the following format:
+lj_(energy)_(impact parameter).png
+When the impact parameter is small or large (b <= 1.5 or b = 2.1), the particle gets close to the potential well center and then gets repulsed away. The exact angle that the particle goes off to depends on the energy and impact parameter.
+When the impact parameter is approximately 1.8, the theta angle is negative. This suggests that the particle wants to orbit in the potential well. To see this more clearly, we should tune the energy and impact parameter to see what happens. We should also change the max r, so that we can see the orbiting more clearly.
+The orbiting was strongest when b is about 1.8, and energy in the neighborhood of .65 (in au).
+After a bit of fiddling with the energy and impact parameter, I find with E = .65 and b = 1.83 almost 3 orbits complete. The computation takes a bit longer when the theta increases in magnitude. When E is dropped even slightly from this value (say, to .6499), the program freezes up (presemably because we are getting extremely close to the source of the potential, and the force is very strong.) When E is increased slightly, the theta angle is much less negative.
+
+Hard sphere potential:
+The plots for typical trajectories for energy .75 are shown as png's in the following format
+
+hsp_(energy)_(impact parameter).png
+The energy has no effect on the theta, so we only have one set of images.
+If |b| is larger than or equal to 1, the program freezes. This is because in the case |b| is 1, the particle grazes the surface, so no scattering takes place. When |b| is greater than 1, then no interaction takes place.
+When |b| is less than 1, then the particle makes contact off of the sphere and reflects off of it at the same angle that it came incident to it. In the case that b is 0 the particle is normal to the surface of the sphere and the particle comes back the same way it came in.

@@ -1,0 +1,15 @@
+For part a of problem 3, we are asked to show that the tangent method is unstable above some critical starting x in Problem 1, and we need to find it.
+In part 1, we used the functions tan(x) and tanh(x). 
+Using the default accuracy (1e-06), with the initial point x0 = 1, we get the root 0 in 5 and 6 steps for tan(x) and tanh(x), respectively.
+So the critical starting x must be higher.
+With the initial point x0 = 1.05, it takes 5 steps for tan(x) to converge, but 7 steps for tanh(x).
+With x0 = 1.08, tanh(x) takes 8 steps to converge.
+With x0 = 1.09, the tanh function fails to converge to a root, due to overflow. This suggests that the step size grows without bound, so the method is unstable at this point. So the critical value of x is smaller than this.
+With x0 = 1.088, the tanh(x) function converges to the root in 10 steps, but it fails with x0 = 1.089.
+tanh(x) converges with x0 = 1.0885, in 11 steps.
+tanh(x) fails to converge with x0 = 1.08867, but converges in 13 steps with x0 = 1.08865.
+tanh(x) fails to converge with x0 = 1.0886595, but works with x0 = 1.08865945.
+tanh(x) fails with x0 = 1.088659495, and works in 21 steps with x0 = 1.088659492.
+With x0 = 1.0886594922, we find that the max step number is exceeded, but the step size does decrease still. Hence I conclude that the critical x is
+
+1.0886594922 < |x_crit| < 1.088659495.

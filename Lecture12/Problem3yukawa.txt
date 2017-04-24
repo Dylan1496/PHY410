@@ -1,0 +1,11 @@
+For part b of Problem 3, we are asked to implement the screened Yukawa potential. To do this we create a class that contains the definition of the potential.
+Typical plots of a trajectory under the screened Yukawa potential with E = .75, and r0 = 2 are given as png's in the following format:
+
+syp_2.0_(impact parameter).png
+
+We see that the trajectories get scattered a bit less than a pure Coulomb potential. This is because that exp(-r/r0) is always less than 1 (since r is always greater than 0). The only exception is that with b = 0, we get backscattering.
+When r0 is large, the fraction r/r0 is small, so we are permitted to Taylor expand around 0:
+
+exp(-r/r0) = 1 - r/r0 + r^2/(2r0^2) - ...
+
+Keeping only the first term yields the same form of V as Rutherford scattering, so in the limit of large r0, we get Rutherford scattering.

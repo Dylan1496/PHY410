@@ -1,0 +1,16 @@
+For the root finding problem we are asked to find the root of tan(x) and tanh(x).
+For this we use the code described for root bisection and the secant rule. For x values we chose two values of x's that enclose the root, which in both cases is at 0. If we pick a symmetric range that is small (say, from -.25 to .25), then both the bisection and secant methods find the root in one step, and the exact root is found for both methods. This is not very interesting, so let's try a range that isn't symmetric.
+Let the x range be from -.25 to .9. We want to see the number of steps it takes for both method to reach a certain accuracy (ie distance away from the exact root.) To do this we set the accuracy variable in root_finding_problem.py to a float. By changing the desired accuracy, we can see how efficient each method is.
+Tangent:
+accuracy = 1e-2: bisection requires 8 steps, gives a root at -.0029296875, secant requires 5 steps, finds a root at -1.61862956489e-09.
+accuracy 1e-3: bisection requires 12 steps, gives a root at 0.00015869140625, secant same as for 1e-2.
+accuracy 1e-6: bisection requires 22 steps, gives a root at -5.96046447707e-08, secant requires 6 steps, finds a root a -2.28812219503e-19.
+accuracy 1e-9: bisection requires 32 steps, gives a root at 1.0477379432e-10, secant requires 7 steps, gives the exact root.
+
+Tanh:
+accuracy = 1e-2: bisection requires 8 steps, gives a root at -0.0029296875, secant requires 5 steps, finds a root at -2.39725506465e-10.
+accuracy 1e-3: bisection requires 12 steps, gives a root at 0.00015869140625, secant same as for 1e-2.
+accuracy 1e-6: bisection requires 22 steps, gives a root at -5.96046447707e-08, secant requires 6 steps, finds a root a 2.20583219974e-21.
+accuracy 1e-9: bisection requires 32 steps, gives a root at 1.0477379432e-10, secant same as for 1e-6.
+
+We see that the bisection method can achieve the same accuracy as the secant method, provided that the bisection method runs for many more steps. So the secant method is faster in terms of convergence. At the same accuracy, the secant method is much closer to the actual root than the bisection method.

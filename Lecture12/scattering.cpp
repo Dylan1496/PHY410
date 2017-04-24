@@ -11,7 +11,7 @@
    Initialize with :
    * V0 : potential well depth
 
-   Then execuate with operator()(r), which will return the Lennard-Jones
+   Then execute with operator()(r), which will return the Lennard-Jones
    potential at r. r must be in units of the potential's minimum, so
    the function is minimized at r = 1.0
    ------------------------------------------------  
@@ -33,7 +33,7 @@ protected :
    Initialize with :
    * V0 : potential "inside" ball
 
-   Then execuate with __call__(r), which will return V0 for r < 1.0, and 0 for r > 1.0.
+   Then execute with operator()(r), which will return V0 for r < 1.0, and 0 for r > 1.0.
    Here, r must be in units of the potential's width. 
    ------------------------------------------------  
 */
@@ -47,6 +47,30 @@ public :
   }
 protected : 
   double _V0;
+};
+
+/*
+  -------------------------------------------------
+  screened_yukawa_potential : class to implement the Screened Yukawa potential.
+  Initalize with :
+  * V0 : potential well depth
+  * r0 : strength scale factor
+
+  Then execute with operator() (r), which will return the screened Yukawa potential at r.
+  Here, r and r0 must be in units of the potential's width.
+  --------------------------------------------------
+*/
+
+class screened_yukawa_potential{
+public:
+  screened_yukawa_potential ( double V0, double r0 ) : _V0(V0), _r0(r0) {
+  }
+  double operator()( double r) const {
+    return _V0*(exp(-r/_r0)/r);
+  }
+protected:
+  double _V0;
+  double _r0;
 };
 
 
@@ -205,16 +229,18 @@ int main()
 {
 
   using namespace std;
-  cout << " Classical Scattering from Lennard-Jones potential" << endl;
-  double E = 0.705;      // set global value of E
+  cout << " Classical Scattering from screened Yukawa potential" << endl;
+  double E = 0.750;      // set global value of E
   cout << " Energy E = " << E << endl;
-  double b_min = 0.6, db = 0.3;
-  int n_b = 6;
+  double b_min = 0.0, db = 0.5;
+  int n_b = 5;
   double b = 0.0;
   double V0 = 1.0;
+  //Only need for Yukawa potential
+  double r0 = 2.0;
   cout << " b      " << '\t' << "Theta(b)\n"
        << " -------" << '\t' << "--------" << endl;
-  lennard_jones lj( V0 );
+  screened_yukawa_potential syp( V0, r0 );
   for (int i = 0; i < n_b; i++) {
 
     stringstream sstream;
@@ -224,7 +250,7 @@ int main()
     b = b_min + i * db;
     std::vector< std::pair<double,double> > trajectory;
     double deflection = 0.0;
-    Theta<lennard_jones> theta( lj, E, b, 3.5, 100 );
+    Theta<screened_yukawa_potential> theta( syp, E, b, 10.0, 100 );
     theta.trajectory(deflection, trajectory);
     std::cout << " " << b << "\t\t" << deflection << std::endl;
     for (int i = 0; i < trajectory.size(); i++) {

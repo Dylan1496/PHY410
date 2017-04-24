@@ -1,0 +1,13 @@
+For the function exp(x), we find to compute the definite integral of it from 0 to 1. This is given by the fundamental theorem of calculus: the integral of exp(x) from 0 to 1 is exp(1)-exp(0) = e - 1 = 1.718281828459045235360287471...
+
+To find this using python, we use Simpson's rule and the trapezoid rule, which are implemented in "trapezoid.py" and "simpson.py". We set a = 0 and b = 1. We vary n so as to see how fast they converge to the correct value.
+
+n = 2: trapezoid gives 1.75393109246 , while simpson gives 1.71886115188.
+n = 5: trapezoid gives 1.72400561978, while simpson gives 1.25840116386 (this number is further away from the correct answer than n = 2. This is because 5 is odd, and simpson's rule works only when n is even.)
+n = 10: trapezoid gives 1.71971349139, while simpson gives 1.71828278192.
+n = 50: trapezoid gives 1.71833910414, while simpson gives 1.71828182999.
+n = 100: trapezoid gives 1.71829614745, while simpson gives 1.71828182855.
+n = 500: trapezoid gives 1.71828240122, while simpson gives 1.71828182846.
+n = 1000: trapezoid gives 1.71828197165, while simpson gives 1.71828182846.
+
+We see that for n even, Simpson's rule is more accurate. It is also more accurate off the bat (at n = 2, Simpson gets the first 3 decimals correct whereas the trapzoid has only one correct). This margin improves as n increases, as by n = 100 simpson has 9 decimals correct while the trapezoid has 5 decimals correct. By n = 500 the simpson rule is as accurate as python will show (11 decimals), whereas even by 1000 the trapezoid rule only has 7 correct. So the simpson rule is more efficient.
