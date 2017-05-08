@@ -2,17 +2,20 @@ from nacl import *
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+from math import *
 
-name="Na2Cl2"       # for output files
-nNa = 2
-nCl = 2
+name = "Na4Cl4"    #for output files
+nNa = 4
+nCl = 4
 n = nNa + nCl
 a = 0.2
-r_Na = [  [ 0, 0, 0 ], [ 2*a, 0, 0] ]
-r_Cl = [  [ -a, 0, 0 ], [ a, 0, 0 ] ]
+r_Na = [ [0, 0, 0],[0, 2.*a, 0],[a, a, 0],[1.8*a, -.5*a, 0] ]
+r_Cl = [ [-.1*a, a, 0], [a, 2.*a, 0], [a, 0, -.5*a],[.8*a, -.2*a, .5*a] ]
 
-# Initialize the cluster, add guesses at the
-# minimum arrangement. 
+# Initalize the cluster, add guesses at the
+# minimum arrangement.
+cluster = Cluster()
+
 cluster = Cluster()
 
 for i in xrange(nNa) :

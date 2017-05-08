@@ -1,0 +1,40 @@
+For this problem we need to find the minimum configurations for Na3Cl3 and Na4Cl4.
+The configurations can be seen in the article "Evolving few-ion clusters of Na and Cl" by Michaelian.
+Trimer (n = 3). I used the python program "na3cl3.py" to generate the configurations with the BFGS algorithm.:
+Linear chain - Initial conditions:
+Na at [-3.*a, 0, 0],[-1.*a, 0, 0],[a, 0, 0].
+Cl at [-2.*a, 0, 0], [0,0,0], [2.*a, 0, 0].
+The minimum energy configuration is shown in na3cl3 linear.png. This is a line of ions, in the configuration Na-Cl-Na-Cl-Na-Cl.
+Hexagon - Initial conditions:
+Na at [-a, 0, 0],[0.5*a, sqrt(3.)*a, 0],[0.5*a, -sqrt(3.)*a, 0].
+Cl at [a, 0, 0], [-0.5*a, sqrt(3.)*a ,0], [-0.5*a, -sqrt(3.)*a, 0].
+The minimum energy configuration is shown in na3cl3 hexagonal. The configuration yields a roughly hexagonal shape.
+Tetramer (n = 4). I used the python program "na4cl4.py" to generate the configurations with the BFGS algorithm.:
+Cube - Initial conditions:
+Na at [2.*a, .2*a, 0],[0, 2.*a, 0],[0, 0, 2.*a],[2.*a, 2.*a, 2.*a]
+Cl at [0, 0, 0], [2.*a, 0,2.*a], [2.*a, 2.*a, 0],[0, 2.*a, 2.*a]
+The minimum energy configuration is shown in na4cl4 cube.png. The shape that the ions assume a nearly cube shape, except for the ion that should be along the z axis. It is moved slightly in the positive y direction.
+Octagon - Initial conditions:
+Na at [sqrt(3.)*a, -1.*a, 0],[1.*a, sqrt(3.)*a, 0],[-sqrt(3.)*a, 1.*a, 0],[-1.*a, -sqrt(3.)*a, 0].
+Cl at [sqrt(3.)*a, 1.*a, 0], [-1.*a, sqrt(3.)*a, 0], [-sqrt(3.)*a, -1.*a, 0],[1.*a, -sqrt(3.)*a, 0].
+The minimal energy configuration is shown in na4cl4 octagon.png. The shape looks like an octagon.
+Rectangle - Initial conditions:
+Na at [.5*a, 1.*a, 0],[-1.5*a, 1.*a, 0],[-.5*a, -1.*a, 0],[1.5*a, -1.*a, 0].
+Cl at [-.5*a, 1.*a, 0], [-1.5*a, -1.*a, 0], [.5*a, -1.*a, 0],[1.5*a, 1.*a, 0].
+The minimum energy configuration is shown in na4cl4 rectangle.png. The shape looks like a rectangle, with the corners curving in towards the center a bit.
+Hexagon point - Initial conditions:
+Na at [a, 0, a],[a, -a, 0],[3.*a, 0, 0],[2.*a, -a, 0].
+Cl at [0, 0, 0], [2.*a, 0, 0], [3.*a, a, 0],[1.*a, a, 0].
+The minimum energy configuration is shown in na4cl4 hexagon_point.png. The shape is a hexagon in roughly the same plane, with two ions above and below the plane that the hexagon is in.
+Pyramid point - Initial conditions:
+Na at [a, 0, a],[a, -a, 0],[3.*a, 0, 0],[2.*a, a, 0].
+Cl at [0, 0, 0], [2.*a, 0, 0], [3.*a, a, 0],[1.*a, a, 0].
+The minimum energy configuration is shown in na4cl4 pyramid_point.png. The shape is a pyramid attached to a rectangular piece at the base.
+Pentagon ring - Initial conditions:
+Na at [-2.*a, 0, 0],[a, -sqrt(3.)*a, 0],[a, sqrt(3.)*a, 0],[-2.*a, 0, 2.*a].
+Cl at [-a, -sqrt(3.)*a, 0], [2.*a, 0, 0], [-a, sqrt(3.)*a, 0],[-3.5*a, 0, 1.*a].
+The minimum energy configuration is shown in na4cl4 pent_ring.png. We see a trapezoidal base, and a pentagonal ring protruding into z space.
+The other shape (#7 in the Tetramer shapes)
+Na at [0, 0, 0],[0, 2.*a, 0],[a, a, 0],[1.8*a, -.5*a, 0].
+Cl at [-.1*a, a, 0], [a, 2.*a, 0], [a, 0, -.5*a],[.8*a, -.2*a, .5*a].
+The minimum energy configuration is shown in na4cl4 weird.png. The shape is like the pentagonal ring, but the square is morphed into a diamond and is perpendicular to the pentagon.

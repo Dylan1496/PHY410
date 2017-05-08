@@ -1,0 +1,21 @@
+For problem 1, we are asked to find the minima of the function
+
+V(x,y) = -1/2*r^2+1/4*r^4
+
+where r = sqrt(x^2+y^2) using the BFGS algorithm. We want to see the behavior of the algorithm at various points (x,y).
+To implement this, we followed the example of the python program "minimize.py". First, we defined the potential, which takes a 2 element array. It defines the first value of the array as the x coordinate and the second value as the y coordinate. It returns the potential at that point.
+We then defined the derivative of the function in dV. It takes an argument p, which is a 2 element array. It then assigns to x and y the partial derivative of x and y of V, respectively.
+
+The main part of the program asks the user to input a point, and a tolerance. The program then runs the BFGS algorithm, and in the end prints out the point, and the radius of that point.
+Starting from the point [2, 1], we find that the program goes to the point
+[ 0.37281235 -0.92468574]
+with a radius of
+0.997011917941, and V = -.249991.
+Starting from [0, 1], we stay at the same point (since this point is distance 1 away from the origin, which is the point where V is minimized (at V = -.25).
+What if we start from a point inside of the unit circle? Starting from [0.5, 0.5], we go to
+[0.75, 0.84375]
+with a radius of 1.12889949176 and V is -.231174.
+What if we start from r = 0?
+We do not go anywhere. This is to be expected, since the derivative is 0 here. But V is not minimum here, since V(0,0) = 0 (since r = 0). This suggests that 0 is a local maximum.
+Near r = 0, the algorithm does not move the point closer to the minimum (since the derivative is small here).
+This suggests that the minimum is at r = 1, where V = -.25, and the (local) maximum is at r = 0, when V = 0. (one min and max in the V(r) function (the min is a circle of radius unity, and the max is the origin).

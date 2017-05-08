@@ -1,0 +1,20 @@
+For Problem 3 we are asked to fit the CO2 data with a second degree polynomial, by minimizing the chi-square via the BFGS algorithm (or some other method). We are to compare it to the matrix inversion fit.
+The CO2 data is taken from ftp://ftp.cmdl.noaa.gov/ccg/co2/trends/co2_mm_mlo.txt. (updated to April 2017)
+The way that my program (co2_polyfit_bgfs.py) does it is the following: first, it reads in the file as before with other programs (such as co2.py). We then define the chi square in the code as it is defined in the lecture notes.
+Next, we create arrays containing test parameters for the polynomial. The parameters are equally spaced out using the numpy command linspace. The best chi square, a, b, and c values are initialized to 0.
+We then loop over all the numbers in the arrays, storing in the best parameters the first run through and any subsequent run through with a smaller chi square number.
+Finally, the program spits out the best chi square value and the parameters for the polynomial. One can use these numbers to refine the limits of the parameters to get a better fit.
+The parameters I got for this are the following:
+y = ax^2+bx+c
+with
+a = .0122
+b = -46.6
+c = 44774.0
+Matrix inversion fit: With the CO2 data above and the program co2_polyfit.py, we get the following fitting parameters:
+y = ax^2+bx+c
+with
+c = 46682.59550499916
+b = -48.14961406079237
+a = 0.012496488775923353
+
+Both methods seem to give a reasonable fit, however the method of manually searching for the parameters is a lot slower (have to test m*n*p combinations, where m, n, and p are the number of elements in the a, b and c parameter arrays, respectively)!
